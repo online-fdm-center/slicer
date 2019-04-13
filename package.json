@@ -1,0 +1,21 @@
+{
+  "name": "ofc-slicer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "dilap54",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^11.13.4",
+    "@types/request-promise-native": "^1.0.15",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.4.3"
+  },
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
+  }
+}
