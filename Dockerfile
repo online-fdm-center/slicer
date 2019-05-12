@@ -5,3 +5,4 @@ COPY package.json .
 RUN yarn install --prod
 COPY index.js .
 COPY dist ./dist
+ENTRYPOINT node .

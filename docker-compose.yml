@@ -4,7 +4,6 @@ services:
   slicer:
     build: ./
     image: home.4it.me:5000/ofc-slicer:latest
-    command: node .
     volumes:
       - ../uploads:/app/uploads
     environment:
