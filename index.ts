@@ -64,6 +64,7 @@ const check = () => {
     })
     .catch(error => {
         console.error(error)
+        setTimeout(check, 3000)
     })
 }
 
