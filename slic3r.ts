@@ -13,6 +13,11 @@ type slic3rArgs = {
     '--extrusion-width'?: number
 }
 
+export type IProgress = {
+    progress: number,
+    message: string
+}
+
 const FILAMENT_REQUIRED_REGEX = /\(([\d\.]+)cm3\)/i;
 
 class Slic3r {
@@ -84,44 +89,44 @@ class Slic3r {
             if (data.indexOf('Processing triangulated mesh') !== -1){
                 this.trigger('progress', {
                     message: data.trim(),
-                    process:0.1
-                });
+                    progress:0.1
+                } as IProgress);
             }
             else if (data.indexOf('Generating perimeters') !== -1){
                 this.trigger('progress', {
                     message: data.trim(),
-                    process:0.25
-                });
+                    progress:0.25
+                } as IProgress);
             }
             else if (data.indexOf('Preparing infill') !== -1){
                 this.trigger('progress', {
                     message: data.trim(),
-                    process:0.4
-                });
+                    progress:0.4
+                } as IProgress);
             }
             else if (data.indexOf('Infilling layers') !== -1){
                 this.trigger('progress', {
                     message: data.trim(),
-                    process:0.55
-                });
+                    progress:0.55
+                } as IProgress);
             }
             else if (data.indexOf('Generating skirt') !== -1){
                 this.trigger('progress', {
                     message: data.trim(),
-                    process:0.7
-                });
+                    progress:0.7
+                } as IProgress);
             }
             else if (data.indexOf('Exporting G-code') !== -1){
                 this.trigger('progress', {
                     message: data.trim(),
-                    process:0.85
-                });
+                    progress:0.85
+                } as IProgress);
             }
             else if (data.indexOf('Done. Process took') !== -1){
                 this.trigger('progress', {
                     message: data.trim(),
-                    process:0.95
-                });
+                    progress:0.95
+                } as IProgress);
             }
         })
     }
