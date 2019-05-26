@@ -73,7 +73,7 @@ const check = () => {
                             progress: 1,
                             error: 'Slicing error'
                         })
-                    })
+                    }).catch(err => console.log('Error while send message about error'))
                     setTimeout(check, 3000)
                 })
             } catch (e) {

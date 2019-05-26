@@ -5,7 +5,15 @@ services:
     build: ./
     image: home.4it.me:5000/ofc-slicer:latest
     volumes:
-      - ../uploads:/app/uploads
+      - nfsUploads:/app/uploads
     environment:
       ADMIN_AUTH_TOKEN: ${ADMIN_AUTH_TOKEN}
       STL_DIR: /app/uploads
+
+volumes:
+  nfsUploads:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=api.online.fdm.center
+      device: ":/home/dilap54/server/uploads"
